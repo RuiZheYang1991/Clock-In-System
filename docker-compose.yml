@@ -1,0 +1,33 @@
+version: '3'
+services:
+  web:
+    build: ./app
+    restart: always
+    volumes:
+      - ./app:/app
+    env_file:
+      - .env
+  nginx:
+    image: nginx:latest
+    restart: always
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "80:80"
+      - "4000:4000"
+    depends_on:
+      - web
+
+  db:
+    image: mysql:latest
+    restart: always
+    ports:
+      - "3306:3306"
+    env_file:
+      - .env
+    volumes:
+      - ./mysql/init/init-db.sh:/docker-entrypoint-initdb.d/init-db.sh
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:

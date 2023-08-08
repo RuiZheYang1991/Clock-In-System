@@ -18,6 +18,7 @@ CREATE TABLE IF NOT EXISTS mysql_model (
 
 CREATE TABLE IF NOT EXISTS employee (
     employeeNumber INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50),
     position VARCHAR(50),
     create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
@@ -27,6 +28,7 @@ CREATE TABLE IF NOT EXISTS clock_record (
     employeeNumber INT,
     clockIn DATETIME,
     clockOut DATETIME,
+    update_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (employeeNumber) REFERENCES employee(employeeNumber)
 );
 

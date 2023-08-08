@@ -20,4 +20,4 @@ class ClockRecord(db.Model):
     employeeNumber = db.Column(db.Integer, db.ForeignKey('employee.employeeNumber'), nullable=False)
     clockIn = db.Column(db.DateTime, nullable=True)
     clockOut = db.Column(db.DateTime, nullable=True)
-    update_at = db.Column(db.DateTime, default=datetime.utcnow)
+    update_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)

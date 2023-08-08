@@ -1,0 +1,133 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Clock In System",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/employee": {
+      "get": {
+        "tags": ["MySQL API"],
+        "summary": "列出所有員工當日資訊",
+        "parameters": [
+          {
+            "name": "date",
+            "in": "query",
+            "description": "未給日期則默認查詢當天資訊  格式:date=2023-08-04",
+            "required": false,
+            "type": "string",
+            "format": "date"
+          }],
+        "responses": {
+          "200": {
+            "description": "{\n    \"1\": {\n        \"clockIn\": \"2023-08-04 09:30:00\",\n        \"clockOut\": \"2023-08-04 10:41:00\",\n        \"totalHours\": 1.18\n    },\n    \"2\": {\n        \"clockIn\": \"2023-08-04 09:30:00\",\n        \"clockOut\": null,\n        \"totalHours\": null\n    },\n    \"3\": {\n        \"clockIn\": \"2023-08-04 09:30:00\",\n        \"clockOut\": \"2023-08-04 16:30:00\",\n        \"totalHours\": 5.5\n    }\n}"
+          }
+        }
+      }
+    },
+    "/api/clock-record": {
+      "post": {
+        "tags": ["MySQL API"],
+        "summary": "提供打卡功能",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "employeeNumber": {
+                  "type": "integer",
+                  "description": "工號"
+                }
+              },
+              "required": ["employeeNumber"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{\n    \"message\": \"上班打卡\"\n}"
+          }
+        }
+      },
+      "put": {
+        "tags": ["MySQL API"],
+        "summary": "提供補打卡功能，使漏打上班或下班員工可以進行補打卡",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "employeeNumber": {
+                  "type": "integer",
+                  "description": "工號"
+                },
+                "clockTime": {
+                  "type": "string",
+                  "description": "補打卡日期,未填則默認現在時間。 格式: 2023-08-04 09:30:00"
+                },
+                "clockType": {
+                  "type": "string",
+                  "description": "clockIn or clockOut"
+                }
+              },
+              "required": ["employeeNumber","clockType"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{\n    \"message\": \"補打卡成功(上班)\"\n}"
+          }
+        }
+      }
+    },
+    "/api/missing-clockout": {
+      "get": {
+        "tags": ["MySQL API"],
+        "summary": "列出指定日期區間未打下班卡的員工清單",
+        "parameters": [
+          {
+            "name": "date",
+            "in": "query",
+            "description": "格式:date=2023-08-04:2023-09-04",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          }],
+        "responses": {
+          "200": {
+            "description": "{\n    \"2022-01-03\": [\n        1110027,\n        1110029\n    ],\n    \"2022-01-05\": [\n        1110023\n    ],\n    \"2023-08-08\": [\n        2,\n        3\n    ]\n}"
+          }
+        }
+      }
+    },
+    "/api/early-clockin": {
+      "get": {
+        "tags": ["MySQL API"],
+        "summary": "列出指定日期，當天前五名最早打卡上班的員工",
+        "parameters": [
+          {
+            "name": "date",
+            "in": "query",
+            "description": "未填則默認查詢當天資料。  格式:date=2023-08-04",
+            "required": false,
+            "type": "string",
+            "format": "date"
+          }],
+        "responses": {
+          "200": {
+            "description": "[\n    {\n        \"employeeNumber\": 1,\n        \"clockIn\": \"2023-08-07 09:30:00\"\n    },\n    {\n        \"employeeNumber\": 2,\n        \"clockIn\": \"2023-08-07 22:06:21\"\n    }\n]"
+          }
+        }
+      }
+    }
+  }
+}

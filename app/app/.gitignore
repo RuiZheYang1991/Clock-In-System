@@ -1,0 +1,11 @@
+__pycache__
+            *.pyc
+            *.pyo
+            *.pyd
+            .Python
+            env/
+            dist/
+            build/
+            *.egg
+            .idea/
+            *.sqlite

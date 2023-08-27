@@ -1,9 +1,0 @@
-Flask
-Flask-SQLAlchemy
-Flask-Migrate
-Flask-RESTful
-psycopg2-binary
-pymysql
-flask-swagger-ui
-uwsgi
-cryptography

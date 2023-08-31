@@ -22,12 +22,10 @@ docker-compose up -d
 
 2. 應用程序透過Nginx反向代理，現在應該在指定的端口上運行。你可以通過 `http://localhost:4000` 來訪問它。
 
-3. 應用程序已經部署至AWS，您可以直接訪問 `http://3.89.118.117:4000/api/docs` 查看API電子文件及測試API。
+3. 應用程序已經部署至AWS，您可以直接訪問 `http://3.92.139.233:4000/api/docs` 查看API電子文件及測試API。
 
-4. 若有需要，你可以依照 `.env` 的帳戶資訊透過 MySQL Workbench、 HeidiSQL等軟體進入資料庫操作。
-
-5. member.json 中的員工號碼已寫入雲端資料庫的 `employee` 表、打卡紀錄已寫入 `clock_record` 表  
+4. 您可以直接訪問 `http://3.92.139.233:4000/admin` 訪問後台系統，帳號 admin@example.com 密碼 admin 
 
 ## 注意:
 - 如果你在 `.env` 文件中更改了任何設置，請確保重新啟動 Docker Compose 以應用這些更改。
-- 如果你執行本地部署，member.json中的資料並不會自動寫入資料庫。
+- 如果你執行本地部署，資料庫並不會有員工資料及打卡資料，可以透過後台新增員工，並使用api電子文件的Try it 來打卡。

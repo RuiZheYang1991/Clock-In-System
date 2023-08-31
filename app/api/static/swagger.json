@@ -20,7 +20,7 @@
           }],
         "responses": {
           "200": {
-            "description": "{\n    \"1\": {\n        \"clockIn\": \"2023-08-04 09:30:00\",\n        \"clockOut\": \"2023-08-04 10:41:00\",\n        \"totalHours\": 1.18\n    },\n    \"2\": {\n        \"clockIn\": \"2023-08-04 09:30:00\",\n        \"clockOut\": null,\n        \"totalHours\": null\n    },\n    \"3\": {\n        \"clockIn\": \"2023-08-04 09:30:00\",\n        \"clockOut\": \"2023-08-04 16:30:00\",\n        \"totalHours\": 5.5\n    }\n}"
+            "description": "[\n  {\n    \"clock_in\": \"2023-08-30 16:23:47\",\n    \"clock_out\": \"2023-08-30 16:23:52\",\n    \"total_hours\": 0,\n    \"employee_number\": 2\n  },\n  {\n    \"clock_in\": \"2023-08-30 16:23:59\",\n    \"clock_out\": \"2023-08-30 16:24:03\",\n    \"total_hours\": 0,\n    \"employee_number\": 4\n  },\n  {\n    \"clock_in\": \"2023-08-30 16:24:14\",\n    \"clock_out\": \"2023-08-30 16:24:17\",\n    \"total_hours\": 0,\n    \"employee_number\": 5\n  }\n]"
           }
         }
       }
@@ -38,12 +38,12 @@
             "schema": {
               "type": "object",
               "properties": {
-                "employeeNumber": {
+                "employee_number": {
                   "type": "integer",
                   "description": "工號"
                 }
               },
-              "required": ["employeeNumber"]
+              "required": ["employee_number"]
             }
           }
         ],
@@ -65,7 +65,7 @@
             "schema": {
               "type": "object",
               "properties": {
-                "employeeNumber": {
+                "employee_number": {
                   "type": "integer",
                   "description": "工號"
                 },
@@ -75,10 +75,10 @@
                 },
                 "clockType": {
                   "type": "string",
-                  "description": "clockIn or clockOut"
+                  "description": "clock_in or clock_out"
                 }
               },
-              "required": ["employeeNumber","clockType"]
+              "required": ["employee_number","clock_type"]
             }
           }
         ],
@@ -124,7 +124,7 @@
           }],
         "responses": {
           "200": {
-            "description": "[\n    {\n        \"employeeNumber\": 1,\n        \"clockIn\": \"2023-08-07 09:30:00\"\n    },\n    {\n        \"employeeNumber\": 2,\n        \"clockIn\": \"2023-08-07 22:06:21\"\n    }\n]"
+            "description": "[\n    {\n        \"employee_number\": 1,\n        \"clock_in\": \"2023-08-07 09:30:00\"\n    },\n    {\n        \"employee_number\": 2,\n        \"clock_in\": \"2023-08-07 22:06:21\"\n    }\n]"
           }
         }
       }

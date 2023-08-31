@@ -1,6 +1,5 @@
 import time
 from flask import json
-
 start_time = None
 
 def before_request():
@@ -19,3 +18,4 @@ def after_request(response):
         # 更新 Response
         response.set_data(json.dumps(json_data))
     return response
+

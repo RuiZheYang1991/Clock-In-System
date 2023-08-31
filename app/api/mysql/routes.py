@@ -1,8 +1,7 @@
-from .views import MyTest,EmployeeAPI, ClockRecordAPI,EarlyClockIn,MissingClockOut
+from api.mysql.controllers.controller import EmployeeAPI, ClockRecordAPI,EarlyClockIn,MissingClockOut
 
 def register_routes(api):
-    #測試
-    api.add_resource(MyTest, '/api/test/<string:text>')
+
     #查詢員工資料
     api.add_resource(EmployeeAPI, '/api/employee')
     # 打卡功能API

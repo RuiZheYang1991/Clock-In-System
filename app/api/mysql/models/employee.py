@@ -1,5 +1,4 @@
 from api.database import db
-from datetime import datetime
 
 
 class Employee(db.Model):
@@ -26,4 +25,4 @@ class ClockRecord(db.Model):
     employee_number = db.Column(db.Integer, db.ForeignKey('employee.employee_number'), nullable=False)
     clock_in = db.Column(db.DateTime, nullable=True)
     clock_out = db.Column(db.DateTime, nullable=True)
-    update_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    update_at = db.Column(db.DateTime, server_default=db.func.now(), onupdate=db.func.now(), nullable=False)

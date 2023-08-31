@@ -1,9 +1,9 @@
 
 # My Flask Project
-這是一個簡單的打卡專案，使用Python語言、Flask框架、MVC架構、Restful API風格撰寫。
-整體架構使用 Nginx + uwsgi(Flask) + Mysql ， 已部署至AWS。
-API電子文件使用SWAGGER 1.0。
-後台使用falsk_admin
+- 這是一個簡單的打卡專案，使用Python語言、Flask框架、MVC架構、Restful API風格撰寫。
+- 整體架構使用 ` Nginx` + `uwsgi` + `Flask` + `Mysql` ， 已部署至AWS。
+- API電子文件使用 `SWAGGER 1.0` 。
+- 後台使用 `falsk_admin`
 
 ## 環境需求:
 - Docker

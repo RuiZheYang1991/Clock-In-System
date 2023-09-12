@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, #FFFFFF 0%, #D3D3D3 100%);
+    overflow: hidden;
+}
+.logout-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    background-color: #ff4757;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #ff6b81;
+}
+
+.logout-button:focus {
+    outline: none;
+}

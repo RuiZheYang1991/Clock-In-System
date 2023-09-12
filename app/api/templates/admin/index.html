@@ -1,12 +1,15 @@
 {% extends 'admin/master.html' %}
-
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+{% endblock %}
 {% block body %}
 
-    <div class="row">
-        <div class="col-md-12">
-            <h1>歡迎使用員工管理系統</h1>
-            <a href="{{ url_for('auth.logout') }}">登出</a>
-
-        </div>
+<div class="row">
+    <div class="col-md-12 text-center">
+        <h1>歡迎使用員工管理系統</h1>
+        <a href="{{ url_for('auth.logout') }}" class="logout-button">登出</a>
     </div>
+</div>
+
 {% endblock %}
